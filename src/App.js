@@ -1,7 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  navigator.geolocation.watchPosition((position) => {
+    console.log(position);
+  });
+
+  navigator.geolocation.getCurrentPosition(function (position) {
+    console.log(position);
+  });
+
   return (
     <div className="App">
       <header className="App-header">
