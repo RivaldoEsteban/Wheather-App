@@ -32,6 +32,7 @@ Estilo libre. Lleva el diseño al código utilizando tu framework favorito, o co
 - La imagen de fondo debe cambiar de acuerdo a las condiciones del clima.
 
 - Puedes apoyarte con las siguientes API para su desarrollo: https://openweathermap.org/current 
+
 https://developer.mozilla.org/es/docs/Web/API/Geolocation_API
 
 - Sube tu código a GitHub
