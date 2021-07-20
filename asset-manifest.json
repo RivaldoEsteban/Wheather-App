@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Wheather-App/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/Wheather-App/static/js/main.3f2f75e7.chunk.js",
-    "main.js.map": "/Wheather-App/static/js/main.3f2f75e7.chunk.js.map",
-    "runtime-main.js": "/Wheather-App/static/js/runtime-main.33c8cb86.js",
-    "runtime-main.js.map": "/Wheather-App/static/js/runtime-main.33c8cb86.js.map",
-    "static/js/2.9ca0af22.chunk.js": "/Wheather-App/static/js/2.9ca0af22.chunk.js",
-    "static/js/2.9ca0af22.chunk.js.map": "/Wheather-App/static/js/2.9ca0af22.chunk.js.map",
-    "static/js/3.dfd44028.chunk.js": "/Wheather-App/static/js/3.dfd44028.chunk.js",
-    "static/js/3.dfd44028.chunk.js.map": "/Wheather-App/static/js/3.dfd44028.chunk.js.map",
+    "main.css": "/Wheather-App/static/css/main.a0e20f70.chunk.css",
+    "main.js": "/Wheather-App/static/js/main.6624f0f8.chunk.js",
+    "main.js.map": "/Wheather-App/static/js/main.6624f0f8.chunk.js.map",
+    "runtime-main.js": "/Wheather-App/static/js/runtime-main.6207571f.js",
+    "runtime-main.js.map": "/Wheather-App/static/js/runtime-main.6207571f.js.map",
+    "static/js/2.a8692d98.chunk.js": "/Wheather-App/static/js/2.a8692d98.chunk.js",
+    "static/js/2.a8692d98.chunk.js.map": "/Wheather-App/static/js/2.a8692d98.chunk.js.map",
+    "static/js/3.6e16ad2b.chunk.js": "/Wheather-App/static/js/3.6e16ad2b.chunk.js",
+    "static/js/3.6e16ad2b.chunk.js.map": "/Wheather-App/static/js/3.6e16ad2b.chunk.js.map",
     "index.html": "/Wheather-App/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/Wheather-App/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.9ca0af22.chunk.js.LICENSE.txt": "/Wheather-App/static/js/2.9ca0af22.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/Wheather-App/static/media/logo.6ce24c58.svg"
+    "static/css/main.a0e20f70.chunk.css.map": "/Wheather-App/static/css/main.a0e20f70.chunk.css.map",
+    "static/js/2.a8692d98.chunk.js.LICENSE.txt": "/Wheather-App/static/js/2.a8692d98.chunk.js.LICENSE.txt",
+    "static/media/soleado.1c18270a.jpg": "/Wheather-App/static/media/soleado.1c18270a.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.33c8cb86.js",
-    "static/js/2.9ca0af22.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.3f2f75e7.chunk.js"
+    "static/js/runtime-main.6207571f.js",
+    "static/js/2.a8692d98.chunk.js",
+    "static/css/main.a0e20f70.chunk.css",
+    "static/js/main.6624f0f8.chunk.js"
   ]
 }
