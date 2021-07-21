@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import day from "./day";
+
+import WeatherDay from "./weather-day";
+import ClimaticDataPerDay from "./climatic-data";
+import WeatherDataPerDay from "./weather-data-per-day";
 
 const WeatherDataStyled = styled.div`
   position: absolute;
@@ -19,10 +22,10 @@ const WeatherDataStyled = styled.div`
   * {
     margin: 0;
   }
-  ::before {
-    content: "";
+
+  .bar {
     width: 4rem;
-    height: 0.5rem;
+    height: 6px;
     background: var(--white);
     border-radius: 0.25rem;
     position: absolute;
@@ -30,6 +33,7 @@ const WeatherDataStyled = styled.div`
     top: 0.5rem;
     cursor: pointer;
   }
+
   .weather-temperature {
     display: flex;
     gap: 1rem;
@@ -101,164 +105,38 @@ const WeatherDataStyled = styled.div`
 `;
 
 function WeatherData({ weather, weatherForecast }) {
-  const [hourlyWeather, setHourlyWeather] = useState([false, ""]);
-  const tempMin = Math.floor(weather.main.temp_min - 273.15);
-  const tempMax = Math.floor(weather.main.temp_max - 273.15);
-  const humidity = weather.main.humidity;
-  const windSpeed = (weather.wind.speed * 3.6).toFixed(2);
-  // console.log(weatherForecast);
-  const dia0 = weatherForecast.list.slice(0, 8);
-  const dia1 = weatherForecast.list.slice(8, 16);
-  const dia2 = weatherForecast.list.slice(16, 24);
-  const dia3 = weatherForecast.list.slice(24, 32);
-  const dia4 = weatherForecast.list.slice(32, 40);
+  const [hourbyWeather, setHourbyWeather] = useState([false, ""]);
+  const [classVar, setClassVar] = useState("2021-07-21 18:00:00");
 
+  const dia0 = weatherForecast.list.slice(0, 3);
   const [weatherPerDay, setWeatherPerDay] = useState(dia0);
+
+  const [vari, setVari] = useState(1);
 
   function handleClickComponent() {
     const weather = document.getElementById("Weather");
-    weather.style.bottom = 0;
-    // weather.classList.add("animate__backInUp");
-  }
-
-  function printDataByDate(number, dia) {
-    setWeatherPerDay(dia);
-
-    const todos = document.querySelectorAll(".weather-day");
-    todos.forEach((tag) => {
-      tag.classList.remove("is-active");
-    });
-
-    const element1 = document.getElementById(`element${number}`);
-    element1.classList.add("is-active");
-  }
-
-  function weatherDataAccordingToTime(weather) {
-    console.log(weather);
-    const weatherItem = document.getElementById(weather.dt_txt);
-    setHourlyWeather([true, weather]);
-    if (weatherItem.classList.contains("is-active")) {
-      weatherItem.classList.remove("is-active");
+    if (vari === 1) {
+      setVari("");
+      weather.style.bottom = 0;
     } else {
-      weatherItem.classList.add("is-active");
+      setVari(1);
+      weather.style.bottom = `-290px`;
     }
   }
-
   return (
-    <WeatherDataStyled onClick={handleClickComponent} id="Weather">
-      <div className="weather-day-container">
-        <h2
-          className="weather-day"
-          id="element0"
-          onClick={() => {
-            printDataByDate("0", dia0);
-          }}
-        >
-          {day(0)}
-        </h2>
-        <h2
-          className="weather-day"
-          id="element1"
-          onClick={() => {
-            printDataByDate("1", dia1);
-          }}
-        >
-          {day(1)}
-        </h2>
-        <h2
-          className="weather-day"
-          id="element2"
-          onClick={() => {
-            printDataByDate("2", dia2);
-          }}
-        >
-          {day(2)}
-        </h2>
-        <h2
-          className="weather-day"
-          id="element3"
-          onClick={() => {
-            printDataByDate("3", dia3);
-          }}
-        >
-          {day(3)}
-        </h2>
-        <h2
-          className="weather-day"
-          id="element4"
-          onClick={() => {
-            printDataByDate("4", dia4);
-          }}
-        >
-          {day(4)}
-        </h2>
-      </div>
-      <div className="weather-temperature">
-        {weatherPerDay.map((weather) => {
-          const degreesCelsius = Math.floor(weather.main.temp - 273.15);
-          const weatherImage = weather.weather[0].main.toLowerCase();
-          const date = new Date(weather.dt_txt);
-          const hours = date.getHours();
-          const minutes = date.getMinutes();
-          const currenthour = `${hours.toString().padStart(2, "00")}:${minutes
-            .toString()
-            .padStart(2, "00")}`;
-          return (
-            <div
-              key={weather.dt_txt}
-              className="weather-data"
-              id={weather.dt_txt}
-              onClick={() => {
-                weatherDataAccordingToTime(weather);
-              }}
-            >
-              <p>{currenthour}</p>
-              <img
-                src={`${process.env.PUBLIC_URL}/icons/${weatherImage}.svg`}
-                alt=""
-              />
-              <p className="degrees-celsius">{degreesCelsius}°</p>
-            </div>
-          );
-        })}
-      </div>
-      <div className="weather-more-info">
-        <div className="info left">
-          <p>
-            máx:
-            <b>
-              {hourlyWeather[0]
-                ? Math.floor(weather.main.temp_max - 273.15)
-                : tempMax}
-              °
-            </b>
-          </p>
-          <p>
-            viento:
-            <b>
-              {hourlyWeather[0]
-                ? (weather.wind.speed * 3.6).toFixed(2)
-                : windSpeed}
-              Km-h
-            </b>
-          </p>
-        </div>
-        <div className="info right">
-          <p>
-            min:
-            <b>
-              {hourlyWeather[0]
-                ? Math.floor(hourlyWeather[1].main.temp_min - 273.15)
-                : tempMin}
-              °
-            </b>
-          </p>
-          <p>
-            humedad:
-            <b>{hourlyWeather[0] ? weather.main.humidity : humidity}%</b>
-          </p>
-        </div>
-      </div>
+    <WeatherDataStyled id="Weather">
+      <p className="bar" onClick={handleClickComponent}></p>
+      <WeatherDay
+        weatherForecast={weatherForecast}
+        setWeatherPerDay={setWeatherPerDay}
+      />
+      <WeatherDataPerDay
+        setHourbyWeather={setHourbyWeather}
+        weatherPerDay={weatherPerDay}
+        setClassVar={setClassVar}
+        classVar={classVar}
+      />
+      <ClimaticDataPerDay hourbyWeather={hourbyWeather} weather={weather} />
     </WeatherDataStyled>
   );
 }

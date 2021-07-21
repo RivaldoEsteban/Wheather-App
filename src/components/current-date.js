@@ -47,7 +47,6 @@ const CurrentDateStyled = styled.div`
 
 function CurrentDate({ weather }) {
   const currentDate = date();
-  console.log(currentDate);
   const degreesCelsius = Math.floor(weather.main.temp - 273.15);
   const location = `${weather.sys.country} ${weather.name}`;
   return (

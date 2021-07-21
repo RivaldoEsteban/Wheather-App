@@ -1,17 +1,18 @@
 function appBackgroundImage(weather, currentHour, setCurrentHour) {
   const app = document.getElementById("app");
   const currentWeather = weather.weather[0].main.toLowerCase();
-
-  setTimeout(() => {
+  console.log(currentWeather);
+  setInterval(() => {
     const date = new Date(); // retorna la fecha actual
     const hours = date.getHours(); // retorna la hora actual
-    if (hours === 19) {
+    if (hours >= 19) {
       return setCurrentHour(true);
     }
   }, 100);
 
-  if (currentWeather === "drizzle") {
+  if (currentWeather === "rain") {
     if (currentHour) {
+      console.log("hola");
       return (app.style.backgroundImage = `url(${process.env.PUBLIC_URL}/images/drizzle-night.jpg)`);
     }
     app.style.backgroundImage = `url(${process.env.PUBLIC_URL}/images/drizzle.jpg)`;

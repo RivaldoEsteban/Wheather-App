@@ -5,7 +5,6 @@ import WeatherData from "./components/weather-data";
 import getWeather from "./services/weather";
 import appBackgroundImage from "./components/app-background";
 import getWeatherForecastFor5Days from "./services/forecast";
-// import getWeatherForecastFor16Days from "./services/forecast-16-days"; no autorizado
 // `${process.env.PUBLIC_URL}/icons/soleado.svg`;
 
 const AppStyled = styled.div`
@@ -17,25 +16,15 @@ const AppStyled = styled.div`
   position: relative;
   overflow: hidden;
 `;
-const date = new Date();
-const currentDay = date.getDay();
-const currentDate = date.getDate();
-const currentMonth = date.getMonth();
-
-// console.log(currentDate);
-// console.log(currentDay); //0-6 index
-// console.log(currentMonth); //0-11 index
-
 function App() {
   const [weather, setWeather] = useState("");
   const [weatherForecast, setWeatherForecast] = useState("");
   const [loading, setLoading] = useState(false);
   const [currentHour, setCurrentHour] = useState(false);
-
   if (loading) {
     appBackgroundImage(weather, currentHour, setCurrentHour);
   }
-
+  console.log(weatherForecast);
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(async (position) => {
