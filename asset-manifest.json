@@ -1,23 +1,22 @@
 {
   "files": {
     "main.css": "/Wheather-App/static/css/main.a0e20f70.chunk.css",
-    "main.js": "/Wheather-App/static/js/main.6db22c85.chunk.js",
-    "main.js.map": "/Wheather-App/static/js/main.6db22c85.chunk.js.map",
+    "main.js": "/Wheather-App/static/js/main.5e7316de.chunk.js",
+    "main.js.map": "/Wheather-App/static/js/main.5e7316de.chunk.js.map",
     "runtime-main.js": "/Wheather-App/static/js/runtime-main.f1b3638c.js",
     "runtime-main.js.map": "/Wheather-App/static/js/runtime-main.f1b3638c.js.map",
-    "static/js/2.1de8f84a.chunk.js": "/Wheather-App/static/js/2.1de8f84a.chunk.js",
-    "static/js/2.1de8f84a.chunk.js.map": "/Wheather-App/static/js/2.1de8f84a.chunk.js.map",
+    "static/js/2.60b068c2.chunk.js": "/Wheather-App/static/js/2.60b068c2.chunk.js",
+    "static/js/2.60b068c2.chunk.js.map": "/Wheather-App/static/js/2.60b068c2.chunk.js.map",
     "static/js/3.7d991bec.chunk.js": "/Wheather-App/static/js/3.7d991bec.chunk.js",
     "static/js/3.7d991bec.chunk.js.map": "/Wheather-App/static/js/3.7d991bec.chunk.js.map",
     "index.html": "/Wheather-App/index.html",
     "static/css/main.a0e20f70.chunk.css.map": "/Wheather-App/static/css/main.a0e20f70.chunk.css.map",
-    "static/js/2.1de8f84a.chunk.js.LICENSE.txt": "/Wheather-App/static/js/2.1de8f84a.chunk.js.LICENSE.txt",
-    "static/media/soleado.1c18270a.jpg": "/Wheather-App/static/media/soleado.1c18270a.jpg"
+    "static/js/2.60b068c2.chunk.js.LICENSE.txt": "/Wheather-App/static/js/2.60b068c2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f1b3638c.js",
-    "static/js/2.1de8f84a.chunk.js",
+    "static/js/2.60b068c2.chunk.js",
     "static/css/main.a0e20f70.chunk.css",
-    "static/js/main.6db22c85.chunk.js"
+    "static/js/main.5e7316de.chunk.js"
   ]
 }
