@@ -5,6 +5,9 @@ import WeatherData from "./components/weather-data";
 import getWeather from "./services/weather";
 import appBackgroundImage from "./components/app-background";
 import getWeatherForecastFor5Days from "./services/forecast";
+import NProgress from "nprogress";
+import "./nprogress.css";
+
 // `${process.env.PUBLIC_URL}/icons/soleado.svg`;
 
 const AppStyled = styled.div`
@@ -21,29 +24,34 @@ function App() {
   const [weatherForecast, setWeatherForecast] = useState("");
   const [loading, setLoading] = useState(false);
   const [currentHour, setCurrentHour] = useState(false);
+
   if (loading) {
     appBackgroundImage(weather, currentHour, setCurrentHour);
   }
+
   console.log(weatherForecast);
+
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
+
+        NProgress.start();
         const weather = await getWeather(lat, lon);
         const weatherForecast = await getWeatherForecastFor5Days(lat, lon);
         setWeather(weather);
         setWeatherForecast(weatherForecast);
         setLoading(true);
+        NProgress.done(true);
       });
     } else {
       alert("el usuario no dio acceso a su ubicación");
     }
   }, []);
-
   return (
     <AppStyled id="app">
-      {loading ? <CurrentDate weather={weather} /> : "cargando"}
+      {loading ? <CurrentDate weather={weather} /> : ""}
       {loading ? (
         <WeatherData weather={weather} weatherForecast={weatherForecast} />
       ) : (

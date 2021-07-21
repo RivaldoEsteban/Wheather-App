@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import date from "./date";
+
 const CurrentDateStyled = styled.div`
   display: flex;
   width: 17rem;

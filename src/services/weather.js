@@ -9,6 +9,7 @@ async function getWeather(lat, lon) {
     throw new Error("no jalo el fetch");
   }
   const data = await response.json();
+
   return data;
 }
 export default getWeather;
