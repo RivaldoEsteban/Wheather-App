@@ -3,6 +3,7 @@
 </div>
 
 # Weather App
+
 Mantente actualizado y preparado sin importar el clima. Planifique salidas al aire libre con confianza utilizando una variedad de características meteorológicas que lo mantienen actualizado con hasta una semana de anticipación.
 
 ## Mobile
@@ -31,7 +32,7 @@ Estilo libre. Lleva el diseño al código utilizando tu framework favorito, o co
 
 - La imagen de fondo debe cambiar de acuerdo a las condiciones del clima.
 
-- Puedes apoyarte con las siguientes API para su desarrollo: https://openweathermap.org/current 
+- Puedes apoyarte con las siguientes API para su desarrollo: https://openweathermap.org/current
 
 https://developer.mozilla.org/es/docs/Web/API/Geolocation_API
 

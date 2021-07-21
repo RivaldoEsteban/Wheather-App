@@ -1,52 +1,67 @@
-import React from 'react'
-import styled from 'styled-components'
-
+import React from "react";
+import styled from "styled-components";
+import date from "./date";
 const CurrentDateStyled = styled.div`
   display: flex;
-  width: 14.68rem;
+  width: 17rem;
   height: 5.62rem;
   margin: auto;
   position: absolute;
-  bottom: 1.25rem;
-  background: linear-gradient(90deg, #536976 0%, #292E49 100%);
+  bottom: calc(1.25rem + 360px);
+  background: linear-gradient(90deg, #536976 0%, #292e49 100%);
   color: var(--white);
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   box-sizing: border-box;
   gap: 1rem;
-  border-radius: .5rem;
-  left: calc(50% - (14.68rem/2) );
+  border-radius: 0.5rem;
+  left: calc(50% - (17rem / 2));
   * {
     margin: 0;
   }
-
-  .date {
-    font: 400 normal 56px/43px 'Nunito', sans-serif;
+  .current-date-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
   }
-  .day{
+  .degreesCelsius {
+    font: 400 normal 50px/43px "Nunito", sans-serif;
+    display: flex;
+    align-items: center;
+  }
+  .day {
     font: var(--caption-caption);
     margin-block-end: 0.75rem;
   }
   .country {
     font: var(--caption-caption);
     display: flex;
-    gap: .25rem;
+    gap: 0.25rem;
   }
+  .country img {
+    vertical-align: middle;
+    object-fit: cover;
+  }
+`;
 
-`
-
-function CurrentDate({country,degrees}) {
+function CurrentDate({ weather }) {
+  const currentDate = date();
+  console.log(currentDate);
+  const degreesCelsius = Math.floor(weather.main.temp - 273.15);
+  const location = `${weather.sys.country} ${weather.name}`;
   return (
     <CurrentDateStyled>
-      <div className="date">{degrees}</div>
+      <div className="degreesCelsius">{degreesCelsius}°</div>
       <div className="current-date-right">
-        <p className="day">jueves,15 de julio</p>
+        <p className="day">{currentDate}</p>
         <div className="country">
-          <img src="./icons/lugar.png" alt="point"/>
-          <p>{country}</p>
+          <img src={`${process.env.PUBLIC_URL}/icons/lugar.png`} alt="point" />
+          <p>{location}</p>
         </div>
       </div>
     </CurrentDateStyled>
-  )
+  );
 }
 
-export default CurrentDate
+export default CurrentDate;
