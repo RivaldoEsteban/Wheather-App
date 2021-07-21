@@ -36,7 +36,6 @@ function App() {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-
         NProgress.start();
         const weather = await getWeather(lat, lon);
         const weatherForecast = await getWeatherForecastFor5Days(lat, lon);

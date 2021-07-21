@@ -3,7 +3,6 @@ import React from "react";
 function WeatherByHour({
   weather,
   setClassVar,
-  handleClickTimeByHour,
   classActive,
   setHourbyWeather,
 }) {
@@ -12,9 +11,15 @@ function WeatherByHour({
   const date = new Date(weather.dt_txt);
   const hours = date.getHours();
   const minutes = date.getMinutes();
-  const currenthour = `${hours.toString().padStart(2, "00")}:${minutes
+  let currenthour = `${hours.toString().padStart(2, "00")}:${minutes
     .toString()
     .padStart(2, "00")}`;
+  let amPm = "am";
+  if (hours <= 12) {
+    amPm = "am";
+  } else {
+    amPm = "pm";
+  }
 
   function handleClickTimeByHour() {
     setClassVar(weather.dt_txt);
@@ -28,7 +33,10 @@ function WeatherByHour({
       onClick={handleClickTimeByHour}
       id={weather.dt_txt}
     >
-      <p>{currenthour}</p>
+      <div className="am-pm">
+        <p>{currenthour} </p>
+        <p>{amPm}</p>
+      </div>
       <img src={`${process.env.PUBLIC_URL}/icons/${weatherImage}.svg`} alt="" />
       <p className="degrees-celsius">{degreesCelsius}°</p>
     </div>

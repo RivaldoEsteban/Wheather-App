@@ -74,6 +74,7 @@ const WeatherDataStyled = styled.div`
     padding-bottom: 0.5rem;
     text-transform: capitalize;
     cursor: pointer;
+    border-bottom: 4px solid transparent;
   }
   .weather-day.is-active {
     color: var(--primary);
@@ -94,6 +95,10 @@ const WeatherDataStyled = styled.div`
     font: var(--body1-bold);
     text-transform: none;
   }
+  .am-pm {
+    text-align: center;
+    text-transform: none;
+  }
   .info {
     display: flex;
     flex-direction: column;
@@ -107,8 +112,7 @@ const WeatherDataStyled = styled.div`
 function WeatherData({ weather, weatherForecast }) {
   const [hourbyWeather, setHourbyWeather] = useState([false, ""]);
   const [classVar, setClassVar] = useState("2021-07-21 18:00:00");
-
-  const dia0 = weatherForecast.list.slice(0, 3);
+  const dia0 = weatherForecast.list.slice(0, 8);
   const [weatherPerDay, setWeatherPerDay] = useState(dia0);
 
   const [vari, setVari] = useState(1);
@@ -123,6 +127,7 @@ function WeatherData({ weather, weatherForecast }) {
       weather.style.bottom = `-290px`;
     }
   }
+
   return (
     <WeatherDataStyled id="Weather">
       <p className="bar" onClick={handleClickComponent}></p>

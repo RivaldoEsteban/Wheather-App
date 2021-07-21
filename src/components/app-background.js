@@ -12,7 +12,6 @@ function appBackgroundImage(weather, currentHour, setCurrentHour) {
 
   if (currentWeather === "rain") {
     if (currentHour) {
-      console.log("hola");
       return (app.style.backgroundImage = `url(${process.env.PUBLIC_URL}/images/drizzle-night.jpg)`);
     }
     app.style.backgroundImage = `url(${process.env.PUBLIC_URL}/images/drizzle.jpg)`;
