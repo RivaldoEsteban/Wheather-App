@@ -120,7 +120,6 @@ const WeatherDataStyled = styled.div`
 
 function WeatherData({ weather, weatherForecast, hidden }) {
   const [hourbyWeather, setHourbyWeather] = useState([false, ""]);
-
   const [classVar, setClassVar] = useState("2021-07-21 18:00:00");
   const dia0 = weatherForecast.list.slice(0, 8);
   const [weatherPerDay, setWeatherPerDay] = useState(dia0);

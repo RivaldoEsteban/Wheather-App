@@ -6,18 +6,19 @@ function WeatherByHour({
   classActive,
   setHourbyWeather,
 }) {
-  var es_safari = navigator.userAgent.toLowerCase().indexOf("safari") > -1;
-  var es_chrome = navigator.userAgent.toLowerCase().indexOf("chrome") > -1;
-  var es_firefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
+  // var es_safari = navigator.userAgent.toLowerCase().indexOf("safari") > -1;
+  // var es_chrome = navigator.userAgent.toLowerCase().indexOf("chrome") > -1;
+  // var es_firefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
 
   let currenthour = "";
-  if (es_safari) {
-    currenthour = weather.dt_txt;
-  }
-
+  // if (es_safari) {
+  //   currenthour = weather.dt_txt;
+  // }
+  // console.log(new Date("2021-07-22 18:00:00".replace(/-/g, "/")));
   const degreesCelsius = Math.floor(weather.main.temp - 273.15);
   const weatherImage = weather.weather[0].main.toLowerCase();
-  const date = new Date(weather.dt_txt);
+  const date = new Date(weather.dt_txt.replace(/-/g, "/"));
+  console.log(date);
   const hours = date.getHours();
   const minutes = date.getMinutes();
   currenthour = `${hours.toString().padStart(2, "00")}:${minutes
@@ -25,12 +26,10 @@ function WeatherByHour({
     .padStart(2, "00")}`;
 
   let amPm = "";
-  if (es_chrome || es_firefox) {
-    if (hours <= 12) {
-      amPm = "am";
-    } else {
-      amPm = "pm";
-    }
+  if (hours <= 12) {
+    amPm = "am";
+  } else {
+    amPm = "pm";
   }
 
   function handleClickTimeByHour() {
