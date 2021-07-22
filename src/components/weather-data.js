@@ -107,16 +107,13 @@ const WeatherDataStyled = styled.div`
   .info b {
     padding-left: 5px;
   }
-  .animation {
-    animation-name: animation;
-    animation-duration: 1s;
-  }
-  @keyframes animation {
-    0% {
-      /* transform: translate(0); */
+  @media (max-width: 500px) {
+    .weather-day-container {
+      justify-content: space-between;
+      gap: 0;
     }
-    100% {
-      transform: translateY(600px);
+    .weather-day {
+      font-size: 14px;
     }
   }
 `;
