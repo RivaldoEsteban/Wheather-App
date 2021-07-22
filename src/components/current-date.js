@@ -8,7 +8,7 @@ const CurrentDateStyled = styled.div`
   height: 5.62rem;
   margin: auto;
   position: absolute;
-  bottom: calc(1.25rem + 360px);
+  bottom: 6rem;
   background: linear-gradient(90deg, #536976 0%, #292e49 100%);
   color: var(--white);
   padding: 1rem 1.5rem;
@@ -46,17 +46,19 @@ const CurrentDateStyled = styled.div`
   }
 `;
 
-function CurrentDate({ weather }) {
+function CurrentDate({ weather, setHidden }) {
   const currentDate = date();
   const degreesCelsius = Math.floor(weather.main.temp - 273.15);
   const location = `${weather.sys.country} ${weather.name}`;
+  const city = document.getElementById("current-date");
+  setHidden(city);
   return (
-    <CurrentDateStyled>
+    <CurrentDateStyled id="current-date" className="animate__backInUp">
       <div className="degreesCelsius">{degreesCelsius}°</div>
       <div className="current-date-right">
         <p className="day">{currentDate}</p>
         <div className="country">
-          <img src={`${process.env.PUBLIC_URL}/icons/lugar.png`} alt="point" />
+          <img src={`${process.env.PUBLIC_URL}/icons/lugar.svg`} alt="point" />
           <p>{location}</p>
         </div>
       </div>

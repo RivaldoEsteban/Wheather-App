@@ -107,10 +107,23 @@ const WeatherDataStyled = styled.div`
   .info b {
     padding-left: 5px;
   }
+  .animation {
+    animation-name: animation;
+    animation-duration: 1s;
+  }
+  @keyframes animation {
+    0% {
+      /* transform: translate(0); */
+    }
+    100% {
+      transform: translateY(600px);
+    }
+  }
 `;
 
-function WeatherData({ weather, weatherForecast }) {
+function WeatherData({ weather, weatherForecast, hidden }) {
   const [hourbyWeather, setHourbyWeather] = useState([false, ""]);
+
   const [classVar, setClassVar] = useState("2021-07-21 18:00:00");
   const dia0 = weatherForecast.list.slice(0, 8);
   const [weatherPerDay, setWeatherPerDay] = useState(dia0);
@@ -119,11 +132,14 @@ function WeatherData({ weather, weatherForecast }) {
 
   function handleClickComponent() {
     const weather = document.getElementById("Weather");
+    console.log(hidden);
     if (vari === 1) {
       setVari("");
       weather.style.bottom = 0;
+      hidden.style.bottom = `400px`;
     } else {
       setVari(1);
+      hidden.style.bottom = `100px`;
       weather.style.bottom = `-290px`;
     }
   }

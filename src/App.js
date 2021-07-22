@@ -21,6 +21,7 @@ const AppStyled = styled.div`
 `;
 function App() {
   const [weather, setWeather] = useState("");
+  const [hidden, setHidden] = useState("");
   const [weatherForecast, setWeatherForecast] = useState("");
   const [loading, setLoading] = useState(false);
   const [currentHour, setCurrentHour] = useState(false);
@@ -50,9 +51,13 @@ function App() {
   }, []);
   return (
     <AppStyled id="app">
-      {loading ? <CurrentDate weather={weather} /> : ""}
+      {loading ? <CurrentDate weather={weather} setHidden={setHidden} /> : ""}
       {loading ? (
-        <WeatherData weather={weather} weatherForecast={weatherForecast} />
+        <WeatherData
+          weather={weather}
+          weatherForecast={weatherForecast}
+          hidden={hidden}
+        />
       ) : (
         ""
       )}

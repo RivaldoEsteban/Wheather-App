@@ -3,6 +3,7 @@ function ClimaticDataPerDay({ hourbyWeather, weather }) {
   const tempMax = Math.floor(weather.main.temp_max - 273.15);
   const humidity = weather.main.humidity;
   const windSpeed = (weather.wind.speed * 3.6).toFixed(2);
+  console.log(hourbyWeather);
   return (
     <div className="weather-more-info">
       <div className="info left">
@@ -10,7 +11,7 @@ function ClimaticDataPerDay({ hourbyWeather, weather }) {
           máx:
           <b>
             {hourbyWeather[0]
-              ? Math.floor(weather.main.temp_max - 273.15)
+              ? Math.floor(hourbyWeather[1].main.temp_max - 273.15)
               : tempMax}
             °
           </b>
@@ -19,7 +20,7 @@ function ClimaticDataPerDay({ hourbyWeather, weather }) {
           viento:
           <b>
             {hourbyWeather[0]
-              ? (weather.wind.speed * 3.6).toFixed(2)
+              ? (hourbyWeather[1].wind.speed * 3.6).toFixed(2)
               : windSpeed}
             Km-h
           </b>
@@ -37,7 +38,7 @@ function ClimaticDataPerDay({ hourbyWeather, weather }) {
         </p>
         <p>
           humedad:
-          <b>{hourbyWeather[0] ? weather.main.humidity : humidity}%</b>
+          <b>{hourbyWeather[0] ? hourbyWeather[1].main.humidity : humidity}%</b>
         </p>
       </div>
     </div>
